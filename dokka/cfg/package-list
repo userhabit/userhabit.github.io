@@ -1,0 +1,27 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.test.myapplication2////PointingToDeclaration/cfg/com.test.myapplication2/index.html
+$dokka.location:com.test.myapplication2/ExampleInstrumentedTest///PointingToDeclaration/cfg/com.test.myapplication2/-example-instrumented-test/index.html
+$dokka.location:com.test.myapplication2/ExampleInstrumentedTest/ExampleInstrumentedTest/#/PointingToDeclaration/cfg/com.test.myapplication2/-example-instrumented-test/-example-instrumented-test.html
+$dokka.location:com.test.myapplication2/ExampleInstrumentedTest/useAppContext/#/PointingToDeclaration/cfg/com.test.myapplication2/-example-instrumented-test/use-app-context.html
+$dokka.location:com.test.myapplication2/ExampleUnitTest///PointingToDeclaration/cfg/com.test.myapplication2/-example-unit-test/index.html
+$dokka.location:com.test.myapplication2/ExampleUnitTest/ExampleUnitTest/#/PointingToDeclaration/cfg/com.test.myapplication2/-example-unit-test/-example-unit-test.html
+$dokka.location:com.test.myapplication2/ExampleUnitTest/addition_isCorrect/#/PointingToDeclaration/cfg/com.test.myapplication2/-example-unit-test/addition_is-correct.html
+$dokka.location:com.test.myapplication2/FirstFragment///PointingToDeclaration/cfg/com.test.myapplication2/-first-fragment/index.html
+$dokka.location:com.test.myapplication2/FirstFragment/FirstFragment/#/PointingToDeclaration/cfg/com.test.myapplication2/-first-fragment/-first-fragment.html
+$dokka.location:com.test.myapplication2/FirstFragment/onCreateView/#LayoutInflater#ViewGroup?#Bundle?/PointingToDeclaration/cfg/com.test.myapplication2/-first-fragment/on-create-view.html
+$dokka.location:com.test.myapplication2/FirstFragment/onDestroyView/#/PointingToDeclaration/cfg/com.test.myapplication2/-first-fragment/on-destroy-view.html
+$dokka.location:com.test.myapplication2/FirstFragment/onViewCreated/#View#Bundle?/PointingToDeclaration/cfg/com.test.myapplication2/-first-fragment/on-view-created.html
+$dokka.location:com.test.myapplication2/MainActivity///PointingToDeclaration/cfg/com.test.myapplication2/-main-activity/index.html
+$dokka.location:com.test.myapplication2/MainActivity/MainActivity/#/PointingToDeclaration/cfg/com.test.myapplication2/-main-activity/-main-activity.html
+$dokka.location:com.test.myapplication2/MainActivity/onCreate/#Bundle?/PointingToDeclaration/cfg/com.test.myapplication2/-main-activity/on-create.html
+$dokka.location:com.test.myapplication2/MainActivity/onCreateOptionsMenu/#Menu/PointingToDeclaration/cfg/com.test.myapplication2/-main-activity/on-create-options-menu.html
+$dokka.location:com.test.myapplication2/MainActivity/onOptionsItemSelected/#MenuItem/PointingToDeclaration/cfg/com.test.myapplication2/-main-activity/on-options-item-selected.html
+$dokka.location:com.test.myapplication2/MainActivity/onSupportNavigateUp/#/PointingToDeclaration/cfg/com.test.myapplication2/-main-activity/on-support-navigate-up.html
+$dokka.location:com.test.myapplication2/SecondFragment///PointingToDeclaration/cfg/com.test.myapplication2/-second-fragment/index.html
+$dokka.location:com.test.myapplication2/SecondFragment/SecondFragment/#/PointingToDeclaration/cfg/com.test.myapplication2/-second-fragment/-second-fragment.html
+$dokka.location:com.test.myapplication2/SecondFragment/onCreateView/#LayoutInflater#ViewGroup?#Bundle?/PointingToDeclaration/cfg/com.test.myapplication2/-second-fragment/on-create-view.html
+$dokka.location:com.test.myapplication2/SecondFragment/onDestroyView/#/PointingToDeclaration/cfg/com.test.myapplication2/-second-fragment/on-destroy-view.html
+$dokka.location:com.test.myapplication2/SecondFragment/onViewCreated/#View#Bundle?/PointingToDeclaration/cfg/com.test.myapplication2/-second-fragment/on-view-created.html
+com.test.myapplication2
+
