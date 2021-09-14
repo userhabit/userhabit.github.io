@@ -1,0 +1,735 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>SDK 적용하기</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7bbdea6a-1b84-444a-9407-9d421255922e" class="page sans"><header><h1 class="page-title">SDK 적용하기</h1></header><div class="page-body"><h2 id="e11c7bd4-137f-474c-98dd-195c7424dda4" class="">절차</h2><ol type="1" id="fc7af6dd-ba02-43ff-9194-0f4903124176" class="numbered-list" start="1"><li>라이브러리 추가하기</li></ol><ol type="1" id="44a616c7-0504-407d-8e83-60c957b7846e" class="numbered-list" start="2"><li>AndroidManifest.xml 에 설정 추가</li></ol><ol type="1" id="bc8882c7-0ad5-4fe4-8424-6bee9b1aaa9d" class="numbered-list" start="3"><li>코드에<em> Userhabit.start</em> 추가하기</li></ol><ol type="1" id="024e820b-0219-4b3a-91cb-f5c495ba49c2" class="numbered-list" start="4"><li>프로가드(Proguard)에 예외추가 하기</li></ol><ol type="1" id="34e10faa-9b26-471c-ad14-7ec2db31e4d4" class="numbered-list" start="5"><li>확인<ol type="a" id="a8f1cee1-528b-4aa2-8b9f-2174c4b94264" class="numbered-list" start="1"><li>SDK가 제대로 적용됐는지 확인</li></ol><ol type="a" id="6fea09be-3e80-464a-af98-c9d61554fb6f" class="numbered-list" start="2"><li>수집된 data 전송여부 확인</li></ol></li></ol><p id="f7bf9886-1aaf-48cb-a258-6aa193e70835" class="">
+</p><h2 id="441dc5b7-1f8e-4ac2-be9f-7e6afeb0ce4c" class="">1. <strong>라이브러리 추가하기</strong></h2><p id="cbaf4306-9895-4d5f-9a98-1427fb386187" class="">라이브러리(library) 를 추가하는 방식은 다음 2가지가 있습니다.</p><ol type="1" id="815f66f1-b697-429b-8134-7ca7b7ca5b0f" class="numbered-list" start="1"><li><strong>직접 library file을 donwload</strong> 하는 방식</li></ol><ol type="1" id="076dd3b2-26df-444e-9fa6-9fac5b480eb2" class="numbered-list" start="2"><li><strong>maven repository 이용</strong> 방식: 현재 지원하지 않습니다.</li></ol><p id="56eb87b9-15a8-469d-8d79-c3194b4a2c7a" class="">
+</p><p id="28703c58-83c1-4be5-ae54-da5a9d169545" class="">각 방식을 사용하는 방법은 다음과 같습니다.<em><mark class="highlight-gray_background">(메뉴 왼쪽의 ▶︎버튼을 누르면 메뉴가 펼쳐집니다.)</mark></em></p><ul id="746a3ee9-3630-46f8-8150-8d86dddb2ca0" class="toggle"><li><details open=""><summary><strong>Download 방식</strong></summary><ol type="1" id="9300f1a0-3d3c-4a93-8715-f75fcd094242" class="numbered-list" start="1"><li><a href="https://s3-ap-northeast-1.amazonaws.com/userhabit-production/sdks/userhabitsdk_1.3.0.aar">링크</a>를 클릭해 안드로이드용 유저해빗 SDK를 다운로드 하세요.</li></ol><ol type="1" id="44ddd0da-fcb9-4927-af1c-50da378893b1" class="numbered-list" start="2"><li>해당 jar파일을 안드로이드 프로젝트 폴더 밑 libs 추가합니다. (app/libs/)</li></ol><ol type="1" id="4dd91c79-e488-4ad3-870b-029ffc8acc3b" class="numbered-list" start="3"><li><em>app/build.gradle</em> 의 <em>dependencies</em> 에 <code>implementation files(&#x27;libs/userhabitsdk_1.3.0.aar&#x27;)</code> 추가</li></ol><pre id="47fc0384-0a42-4e9f-a930-7b2a02fe4faf" class="code"><code>// app/build.gradle
+plugins {
+    ...
+}
+
+repositories {
+}
+
+android {
+    ...
+}
+
+dependencies {
+    implementation files(&#x27;libs/userhabitsdk_1.3.0.aar&#x27;)
+    ...
+}</code></pre></details></li></ul><ul id="0a323d83-f609-4971-a042-00ba1e165694" class="toggle"><li><details open=""><summary><del><strong>maven repository를 이용하는 방식</strong></del></summary><ol type="1" id="bcfb9208-f52e-4b8b-aefa-ce112a4c72ab" class="numbered-list" start="1"><li>app/build.gradle에 적용하세요. 아래 소스와 같이 maven주소와 SDK를 추가합니다.</li></ol><pre id="134cb051-7e82-4688-b202-7e0526293534" class="code"><code>repositories {
+	maven { url &#x27;https://repo.userhabit.io/content/groups/public&#x27;}
+}
+
+android { 
+	dependencies { 
+			implementation &#x27;io.userhabit.service:userhabitsdk:1.3.0@aar&#x27;
+	}
+}</code></pre><p id="e5ba9d9d-5288-4495-a275-103bbfb77d07" class="">
+</p></details></li></ul><p id="d49cb0ad-3a26-4325-b56a-63520f05b2d9" class="">
+</p><h2 id="b96faa34-69eb-4c9e-b0d8-6b78ae36021d" class="">2. <strong>AndroidManifest.xml 에 설정 추가하기</strong></h2><p id="4286a09e-1b68-4ed4-bb69-e0fe1ee67f13" class="">아래 5개를 <code>AndroidManifest.xml</code> 에 추가해주면 된다.</p><ol type="1" id="b35407f7-b37c-45f2-91d4-498a30440e2d" class="numbered-list" start="1"><li><strong>인터넷 권한</strong> :<ul id="76b13e49-87ac-4c5e-a5bf-65810566fb44" class="bulleted-list"><li><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</code></li></ul></li></ol><ol type="1" id="4867c544-5024-4826-a022-ad4c998f96c9" class="numbered-list" start="2"><li><strong>네트워크 상태 체크 권한</strong> :<ul id="f65d1bd2-4ef2-4c38-97f0-fe4cdb93a4af" class="bulleted-list"><li><code>&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;</code></li></ul></li></ol><ol type="1" id="6de251ec-4e09-48d3-8c29-2f40d87e5055" class="numbered-list" start="3"><li><strong>targetSdk 가 28이상인 경우</strong> 추가 :<ul id="81c46b25-81f4-4943-be67-a19cf6a1f236" class="bulleted-list"><li>targetSdk 28+ Apache Client Registration for UserhabitSDK : <code>&lt;uses-library android:name=&quot;org.apache.http.legacy&quot; android:required=&quot;false&quot; /&gt;</code></li></ul><ul id="29158f6d-37f0-4128-b556-2f85b2556345" class="bulleted-list"><li>⚠️ <mark class="highlight-yellow_background">적용할 프로젝트가 target SDK 28+일 경우, 안드로이드 9.0(Pie)정책에 의해 Apache HTTP 클라이언트 권한이 반드시 필요합니다.</mark></li></ul></li></ol><ol type="1" id="9e2252d4-6e61-43bf-b6b2-3934edfee273" class="numbered-list" start="4"><li><strong>site(</strong><a href="http://userhabit.io/">userhabit.io</a>)<strong>에서 발급받은 API KEY 추가 </strong>:<ul id="5f0cfc70-c085-4ff7-b91e-672e104f4fa0" class="bulleted-list"><li>발급받은 key 가 <code>dev_xxxxxxxxxxxxxxxxxx</code> 라고 하면,</li></ul><ul id="f617b58d-e9b3-4c55-9545-5c4ab21b85a4" class="bulleted-list"><li><code>&lt;meta-data android:name=&quot;userhabitApiKey&quot; android:value=&quot;dev_xxxxxxxxxxxxxxxxxx&quot; /&gt;</code></li></ul></li></ol><ol type="1" id="5363a020-7540-4392-b009-4c2ed2d0fa0c" class="numbered-list" start="5"><li><strong>유저해빗 서비스 등록</strong> : <ul id="791b45aa-62ca-4349-8147-b00d89e90ad9" class="bulleted-list"><li><code>&lt;service android:name=&quot;io.userhabit.service.main.service.UserhabitService&quot; /&gt;</code></li></ul></li></ol><pre id="5e327379-a5f9-4042-85a2-945dd835c3c4" class="code"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+  package=&quot;io.userhabit.myapplication2.app&quot; &gt;
+
+  &lt;!--인터넷 권한 추가--&gt;
+  &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+  &lt;!--네트워크 상태 체크 권한 추가--&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+
+  &lt;application
+			android:name=&quot;.YourApplication&quot; //application 등록
+      android:icon=&quot;@mipmap/ic_launcher&quot;
+      android:label=&quot;@string/app_name&quot;
+      android:theme=&quot;@style/AppTheme&quot; &gt;
+
+			&lt;!-- targetSDK 28+ Apache Client Registration for UserhabitSDK--&gt;
+      &lt;uses-library
+           android:name=&quot;org.apache.http.legacy&quot;
+           android:required=&quot;false&quot; /&gt;
+      
+      &lt;!--해당하는 API KEY 발급 받기--&gt;
+      &lt;meta-data android:name=&quot;userhabitApiKey&quot; android:value=&quot;dev_xxxxxxxxxxxxxxxxxx&quot; /&gt;
+
+      &lt;!--유저해빗 서비스 등록하기--&gt;
+      &lt;service android:name=&quot;io.userhabit.service.main.service.UserhabitService&quot; /&gt;
+  &lt;/application&gt;
+&lt;/manifest&gt;</code></pre><p id="34294846-8e19-47a2-8bec-f9653172b055" class="">
+</p><h2 id="e5d68905-f942-4f25-a278-8ac0b28ee7fd" class="">3. <strong>소스 코드 추가하기</strong></h2><p id="e61c8ec7-4ba4-45c9-9fc0-585023723123" class="">아래와 같이 지정된 Application 클래스 내부에 유저해빗 함수를 적용합니다. 
+(API 9 지원 프로젝트에 아래 방법을 도입하면 API 14 이상 기기만 데이터를 수집합니다.)</p><pre id="7a9fa7ff-32d5-4e9c-ab06-e701218aac66" class="code"><code>public class YourApplication extends Application {
+    public void onCreate() {
+        super.onCreate(); 
+        Userhabit.start(this);
+  }
+}</code></pre><p id="7b44f451-783e-435a-b012-f693a5e9379f" class="">
+</p><p id="cc86b1e1-368f-4fe3-9703-b3f444ae167c" class=""><strong>Application class 추가 방법</strong></p><p id="975c899a-2c4a-4eab-8818-30170621ad66" class="">Application class 를 사용하지 않는 경우는 Application class를 추가한 후 <code>Userhabit.start(this)</code> 코드를 넣으면 됩니다. </p><ul id="ce0a51dd-589b-4987-bb64-c1d73db245ab" class="bulleted-list"><li><a href="https://docs.rudderstack.com/stream-sources/rudderstack-sdk-integration-guides/rudderstack-android-sdk/add-an-application-class-to-you-android-application">Application class 를 추가하는 방법</a></li></ul><p id="49b7eed1-6c1a-4848-b197-093afa57c3bd" class="">
+</p><h2 id="498c85b0-1a92-464e-bfb8-5b699a84c78c" class="">4. 프로가드(ProGuard) 적용하기</h2><p id="3f8e3cb7-ed60-4b13-830f-24c24981d222" class="">프로가드를 사용하실 경우 아래와 같이 예외 처리 코드를 추가해주세요.</p><p id="1cc4a912-1e65-4622-96fb-18fe8fa419b5" class="">
+</p><ul id="deccdd43-ed8c-416e-877f-3da924585743" class="bulleted-list"><li>v4, v7</li></ul><pre id="e9ef6e81-2626-4899-9729-323682e45e36" class="code"><code>-dontwarn org.apache.http.**
+-dontwarn android.support.**
+-dontwarn android.webkit.WebViewClient
+-keep class org.apache.** { *; }
+-keep interface org.apache.http.** { *; }
+-keepnames interface android.support.v4.** { *; }
+-keepnames class android.support.v4.** { *; }
+-keepnames class android.support.v7.** { *; }
+-keepnames interface android.support.v7.** { *; }</code></pre><p id="2739b95d-249e-4067-ae84-a8af8581065a" class="">
+</p><ul id="55188c0c-091b-4467-8c8a-76a0244abf85" class="bulleted-list"><li>안드로이드 X</li></ul><pre id="4f3ac334-2f52-477c-ab33-34ee8d63cac5" class="code"><code>-dontwarn org.apache.http.**
+-dontwarn android.support.**
+-dontwarn android.webkit.WebViewClient
+-dontwarn androidx.**
+-keep class org.apache.** { *; }
+-keep interface org.apache.http.** { *; }
+-keep class androidx.** { *; }
+-keep interface androidx.** { *; }</code></pre><p id="0d5c7d6f-c8b9-42d9-ae0b-c4d826c04919" class="">
+</p><p id="cd657f83-7215-4054-8c01-f2adb8a1b539" class="">유저해빗에서는 Android Support 라이브러리로 부터 아래의 클래스를 사용 합니다.</p><ul id="ed9ea61e-1a17-4f95-8266-b8d84566e6b7" class="bulleted-list"><li>v4.view.ViewPager</li></ul><ul id="7c158c19-132a-4903-a38d-6fd8cece1636" class="bulleted-list"><li>v4.view.ViewCompat</li></ul><ul id="43fac3da-945c-4735-a471-8d7b787a9305" class="bulleted-list"><li>v4.widget.DrawerLayout</li></ul><ul id="666bdf8b-835e-47ce-8c34-b81c0b4fa615" class="bulleted-list"><li>v7.widget.RecyclerView</li></ul><p id="9d8182d6-3028-4998-afa3-374395d0ea96" class="">
+</p><h3 id="f9d0b98b-5215-4abe-bec3-b7da0f47361b" class="">5. 확인</h3><p id="68bd2887-21bb-4d17-96d8-7a525f2e8ba4" class=""><strong>SDK가 제대로 적용됐는지 확인</strong></p><p id="302420cf-d445-445d-9523-274bdca206b0" class="">정상적으로 실행되면, logcat 에서 아래와 같은 로그가 보인다.</p><blockquote id="745abe3b-dd55-402b-9f0c-4892712f853c" class=""><strong>주의!</strong>
+<code>Userhabit.setDebug(true)</code> 코드가 들어가 있어야 아래와 같은 log를 확인할 수 있다.</blockquote><p id="39a77d0b-1c6e-4b4b-aff3-fdca4bb3b6f1" class="">
+</p><pre id="24fd52f0-9f70-4a99-9a38-b2b2ce9d1502" class="code"><code>...
+2021-09-07 03:14:56.178 5337-5337/com.test.myapplication I/Userhabit: rrr : true
+2021-09-07 03:14:56.241 5337-5337/com.test.myapplication I/Userhabit: rrr : true
+2021-09-07 03:14:56.253 5337-5337/com.test.myapplication D/UserhabitLog: sdk process success
+2021-09-07 03:14:56.255 5337-5337/com.test.myapplication D/UserhabitLog: SESSION =&gt; Start (4)
+2021-09-07 03:14:56.313 5337-5362/com.test.myapplication D/UserhabitLog: SCREEN_CHANGE =&gt; com.test.myapplication.MainActivity::$PORTRAIT$
+2021-09-07 03:14:56.642 5337-5364/com.test.myapplication D/UserhabitLog: NETWORK =&gt; Session open succeeded
+2021-09-07 03:14:56.973 5337-5364/com.test.myapplication D/UserhabitLog: NETWORK =&gt; download fail : 403</code></pre><p id="4746162d-fb86-4ae4-938e-4fa3dd6d4796" class="">
+</p><p id="2411a072-b1c5-4b13-af80-9d1902543379" class=""><strong>수집된 data 전송여부 확인</strong></p><p id="617c82df-0d64-4106-b0b4-6c99e627c8b7" class="">app 을 종료한 시점에 수집한 data 를 서버로 전송하게 된다. 아래처럼 logcat 에서 data 를 전송했다는 log를 확인할 수 있다. </p><p id="10b76f3f-9365-4188-bc4b-d0e93b4cf816" class="">
+</p><p id="e38c1a3f-5bf0-4b7c-89b4-b029409fd048" class="">log에서도 보이듯이, app이 background 로 넘어간 후, 일정시간이 지나야 app 이 종료됐다고 인식해서 data 를 전송한다.</p><ul id="26a7b2ad-4d43-4689-a768-560b8a442da1" class="bulleted-list"><li>세션 종료시간 설정 메뉴얼: <a href="https://www.notion.so/58ae0692a267462c8c85165f05b7ebb6">https://userhabit.notion.site/58ae0692a267462c8c85165f05b7ebb6</a></li></ul><p id="cd8fe51d-3a7c-405d-a88d-d849610e6772" class="">
+</p><blockquote id="078ca59a-e0a9-4418-a213-574813cd7149" class=""><strong>주의!</strong>
+<code>Userhabit.setDebug(true)</code> 코드가 들어가 있어야 아래와 같은 log를 확인할 수 있다.</blockquote><pre id="7efe11d5-d0b7-4da1-85e1-71065215c793" class="code"><code>...
+2021-09-07 03:27:01.683 5337-5362/com.test.myapplication D/UserhabitLog: SCREEN_CHANGE =&gt; Background
+2021-09-07 03:27:11.187 5337-5388/com.test.myapplication D/UserhabitLog: SCREEN_CHANGE =&gt; Quit
+2021-09-07 03:27:11.421 5337-5364/com.test.myapplication D/UserhabitLog: NETWORK =&gt; Session data send (4)</code></pre><p id="83123727-63d5-4f4e-939c-b1c313530cca" class="">
+</p><p id="d81fbe28-1fd6-4626-b426-36733df6fa47" class="">
+</p></div></article></body></html>
