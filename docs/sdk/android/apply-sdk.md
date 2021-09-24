@@ -198,7 +198,7 @@ app 을 종료한 시점에 수집한 data 를 서버로 전송하게 된다. �
 
 log에서도 보이듯이, app이 background 로 넘어간 후, 일정시간이 지나야 app 이 종료됐다고 인식해서 data 를 전송한다.
 
-- 세션 종료시간 설정 메뉴얼: [https://userhabit.notion.site/58ae0692a267462c8c85165f05b7ebb6](/docs/sdk/android/04-session-endtime.html)
+- 세션 종료시간 설정 메뉴얼: [https://userhabit.notion.site/58ae0692a267462c8c85165f05b7ebb6](/docs/sdk/android/session-endtime.html)
 
 > **주의!**
 `Userhabit.setDebug(true)` 코드가 들어가 있어야 아래와 같은 log를 확인할 수 있다.

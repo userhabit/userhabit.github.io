@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## 2. 수동 스크린샷 수집모드 활용 (BETA)
 
-👉🏻 [디버그 모드 활성화 하기](/docs/sdk/android/08-activate-debug.html) 함수를 활성화하고 아래 퍼미션을 추가합니다. 
+👉🏻 [디버그 모드 활성화 하기](/docs/sdk/android/activate-debug.html) 함수를 활성화하고 아래 퍼미션을 추가합니다. 
 
 앱이 실행된 기기를 후면 카메라가 보이도록 뒤집고 1초 뒤에 다시 화면이 보이도록 뒤집으면 스크린샷 수집을 위한 화면이 실행됩니다.
 

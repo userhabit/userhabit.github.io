@@ -25,7 +25,7 @@ has_toc: false
  }
 ```
 
-웹뷰의 오브젝트 이미지는 👉🏻 [스크린샷 취득하기](/docs/sdk/android/09-get-screenshot.html) 의 "수동 스크린샷 수집 기능"을 통해서만 수집할 수 있습니다.
+웹뷰의 오브젝트 이미지는 👉🏻 [스크린샷 취득하기](/docs/sdk/android/get-screenshot.html) 의 "수동 스크린샷 수집 기능"을 통해서만 수집할 수 있습니다.
 
 ## **1. 웹뷰 스크롤 데이터 추적 API 호출 가이드**
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 2
+nav_order: 1
 title:  Android SDK
 parent: SDK
 has_children: true
@@ -8,7 +8,7 @@ has_children: true
 
 # Android SDK 가이드v2
 
-아래 library 를 다운로드 받고 설치해서 사용하면 됩니다. 자세한 내용은 *[SDK 적용하기](/docs/sdk/android/01-apply-sdk.html)* 를 참고 하면 됩니다.
+아래 library 를 다운로드 받고 설치해서 사용하면 됩니다. 자세한 내용은 *[SDK 적용하기](/docs/sdk/android/apply-sdk.html)* 를 참고 하면 됩니다.
 
 **[Android SDK 다운로드](https://s3-ap-northeast-1.amazonaws.com/userhabit-production/sdks/userhabitsdk_1.3.0.aar)(1.3.0, latest version / android support library 사용)**
 
