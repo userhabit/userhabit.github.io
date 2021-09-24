@@ -20,7 +20,7 @@ has_children: true
 
 Android support library 를 사용할 수 없는 경우에는, `gradle.properties` 파일에 아래설정을 추가해 주면 됩니다.(`com.android.tools.build:gradle:7.0.2` 기준)
 
-- [AndroidX로 이전 \| Android 개발자 \| Android Developers](https://developer.android.com/jetpack/androidx/migrate#migrate_an_existing_project_using_android_studio)
+- [AndroidX로 이전 / Android Developers](https://developer.android.com/jetpack/androidx/migrate#migrate_an_existing_project_using_android_studio)
 
 ```groovy
 # gradle.properties
